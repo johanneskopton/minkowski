@@ -236,8 +236,7 @@ class Predictor:
         max_test_samples: int = -1,
         verbose: bool = False,
         empirical_variogram_path: typing.Optional[str] = None,
-        cv_split: typing.Optional[typing.Callable
-                                  ] = sklearn.model_selection.TimeSeriesSplit,
+        cv_split=sklearn.model_selection.TimeSeriesSplit,
     ):
         """Calculate cross validation results for the predictor.
         Can be used with the covariate model, kriging, or both.
@@ -260,7 +259,7 @@ class Predictor:
             `kriging==True`), by default None
         cv_split : CV split function, optional
             Determines how the data is split into training and testing sets
-            during cross-validation. Expects sklearn.model_selection functions
+            during cross-validation. Expects sklearn.model_selection objects
             or compatible API. For extrapolation, use TimeSeriesSplit,
             otherwise e.g. ShuffleSplit, depending on the problem. Uses the
             number of CV splits passed to init if possible. By default
